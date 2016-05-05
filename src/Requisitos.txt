@@ -1,0 +1,14 @@
+Após a colisão, o tempo é dividido em slots discretos, cujo tamanho é igual ao
+ pior tempo de propagação de ida e volta (51,2 μs)
+• Depois da 1a colisão, cada estação espera 0 ou 1 slot antes de tentar novamente
+– Se duas estações escolherem o mesmo número aleatório, seus quadros
+ colidirão novamente
+• Depois da 2a colisão, cada uma seleciona ao acaso 0, 1, 2 ou 3 slots e aguarda
+ durante esse tempo
+Se ocorrer uma 3a colisão, a quantidade de slots que as estações terão que
+ aguardar será escolhido ao acaso no intervalo de 0 a 2 3 − 1 slots
+– Em geral, após i colisões, é escolhido um número aleatório entre 0 e 2 i − 1
+ slots
+• Entretanto, após alcançadas dez colisões, o intervalo de randomização será
+ congelado em 1023 slots
+• Após 16 colisões, as tentativas de transmissão são definitivamente abortadas
