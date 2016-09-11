@@ -2,41 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct IP {
-	// 1ª linha
-	int versao; //  a  bits
-	int tamCabecalho; //  a  bits
-	int tipoServico; //  a  bits
-	int tamanhoDatagrama; //  a  bits
-
-	// 2ª linha
-	int identificador; //  a  bits
-	int flags; //  a  bits
-	int deslocamentoFragmentacao; //  a  bits
-
-	// 3ª linha
-	int protocoloNivelSuperior; //  a  bits
-	int checksumCabecalho; //  a  bits
-
-	// 4ª e 5ª linhas
-	int enderecoOrigem; //  a  bits
-	int enderecoDestino; //  a  bits
-
-	// 6ª linha
-	int opcoes; //  a  bits
-	int preenchimento; //  a  bits (0000...00)
-	int dados;
-} IP;
-
-typedef struct Rede {
-	char nomeSubrede[20];
-	int numEnderecos;
-	int bits;
-	int redePrincipal[4];
-	int subRede[4];
-	int cidr;
-	int mascara[4];
-} Rede;
+#include "Rede.h"
 
 int teto(float num) {
 	return (int) (num) + 1;
