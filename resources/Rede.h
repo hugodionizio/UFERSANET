@@ -26,6 +26,6 @@ void imprimirRede(Rede);
 void imprimirRedeEmLinha(Rede);
 void segmentarRede(Rede, Rede *);
 void configurarIP(int *, int, int, int, int);
-void inicializarRede(Rede *, char [20], int [4]);
+void inicializarRede(Rede *, char [20], int, int [4]);
 
 #endif /* REDE_H_ */
