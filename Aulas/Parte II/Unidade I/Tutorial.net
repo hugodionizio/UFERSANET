@@ -1,0 +1,41 @@
+autostart = False
+version = 0.8.7
+[localhost:7200]
+    workingdir = /tmp
+    udp = 10000
+    [[7200]]
+        image = /root/GNS3/Images/C7200-v151.image
+        idlepc = 0x60608f64
+        ghostios = True
+    [[ROUTER West]]
+        console = 2003
+        aux = 2101
+        slot1 = PA-8T
+        s1/0 = Central s1/0
+        x = -148.0
+        y = -66.0
+        z = 1.0
+    [[ROUTER Central]]
+        console = 2005
+        aux = 2100
+        slot1 = PA-8T
+        s1/0 = West s1/0
+        s1/1 = East s1/0
+        x = -40.0
+        y = -63.0
+        z = 1.0
+[localhost:7201]
+    workingdir = /tmp
+    udp = 10100
+    [[7200]]
+        image = /root/GNS3/Images/C7200-v151.image
+        idlepc = 0x60608f64
+        ghostios = True
+    [[ROUTER East]]
+        console = 2009
+        aux = 2102
+        slot1 = PA-8T
+        s1/0 = Central s1/1
+        x = 71.0
+        y = -66.0
+        z = 1.0

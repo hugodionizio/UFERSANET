@@ -1,0 +1,117 @@
+autostart = False
+version = 0.8.6
+[127.0.0.1:7200]
+    workingdir = /tmp
+    udp = 10001
+    [[7200]]
+        image = /home/labcomp1/Downloads/c7200-jk9s-mz.124-13b.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R1]]
+        console = 2101
+        aux = 2501
+        cnfg = configs/R1.cfg
+        slot1 = PA-8T
+        s1/0 = R2 s1/0
+        slot2 = PA-2FE-TX
+        f2/0 = HUB1 1
+        x = -209.0
+        y = 37.0
+        z = 1.0
+    [[ROUTER R2]]
+        console = 2102
+        aux = 2502
+        cnfg = configs/R2.cfg
+        slot1 = PA-8T
+        s1/0 = R1 s1/0
+        s1/1 = R3 s1/0
+        slot2 = PA-2FE-TX
+        f2/0 = HUB2 1
+        x = -63.0
+        y = -32.0
+        z = 1.0
+    [[Hub HUB2]]
+        1 = R2 f2/0
+        x = -65.0
+        y = -154.0
+        z = 1.0
+    [[Hub HUB1]]
+        1 = R1 f2/0
+        x = -344.0
+        y = 54.0
+        z = 1.0
+[127.0.0.1:7201]
+    workingdir = /tmp
+    udp = 10101
+    [[7200]]
+        image = /home/labcomp1/Downloads/c7200-jk9s-mz.124-13b.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R3]]
+        console = 2104
+        aux = 2504
+        cnfg = configs/R3.cfg
+        slot1 = PA-8T
+        s1/0 = R2 s1/1
+        slot2 = PA-2FE-TX
+        f2/0 = HUB3 1
+        x = 129.0
+        y = 39.0
+        z = 1.0
+    [[Hub HUB3]]
+        1 = R3 f2/0
+        x = 251.0
+        y = 43.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    [[NOTE 1]]
+        text = "1"
+        x = -3.99488098283
+        y = 16.6399180957
+        interface = HUB3 1
+    [[NOTE 2]]
+        text = "1"
+        x = 35.6875095363
+        y = 55.9987793528
+        interface = HUB2 1
+    [[NOTE 3]]
+        text = "1"
+        x = 75.8618303298
+        y = 12.6781808059
+        interface = HUB1 1
+    [[NOTE 4]]
+        text = "f2/0"
+        x = 72.9948809828
+        y = 21.3600819043
+        interface = R3 f2/0
+    [[NOTE 5]]
+        text = "s1/0"
+        x = -5.64968689535
+        y = 11.6945789561
+        interface = R3 s1/0
+    [[NOTE 6]]
+        text = "f2/0"
+        x = 33.3124904637
+        y = -17.9987793528
+        interface = R2 f2/0
+    [[NOTE 7]]
+        text = "s1/1"
+        x = 71.6496868953
+        y = 32.3054210439
+        interface = R2 s1/1
+    [[NOTE 8]]
+        text = "s1/0"
+        x = -0.952009810026
+        y = 43.1485467553
+        interface = R2 s1/0
+    [[NOTE 9]]
+        text = "f2/0"
+        x = -6.8618303298
+        y = 25.3218191941
+        interface = R1 f2/0
+    [[NOTE 10]]
+        text = "s1/0"
+        x = 66.95200981
+        y = 0.851453244728
+        interface = R1 s1/0
