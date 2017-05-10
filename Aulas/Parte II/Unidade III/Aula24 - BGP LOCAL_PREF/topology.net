@@ -1,10 +1,11 @@
 autostart = False
-version = 0.8.6
+version = 0.8.7
 [127.0.0.1:7200]
-    workingdir = working
+    workingdir = /tmp
     udp = 10001
     [[7200]]
-        image = /media/labcomp1/CE25-CCED/C7200-v151.image
+        image = /mnt/hugo/GNS3/images/IOS/C7200-v151.image
+        idlepc = 0x638706b0
         sparsemem = True
         ghostios = True
     [[ROUTER R4]]
@@ -55,10 +56,11 @@ version = 0.8.6
         y = -192.0
         z = 1.0
 [127.0.0.1:7201]
-    workingdir = working
+    workingdir = /tmp
     udp = 10101
     [[7200]]
-        image = /media/labcomp1/CE25-CCED/C7200-v151.image
+        image = /mnt/hugo/GNS3/images/IOS/C7200-v151.image
+        idlepc = 0x638706b0
         sparsemem = True
         ghostios = True
     [[ROUTER R5]]
