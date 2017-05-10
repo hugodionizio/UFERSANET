@@ -1,0 +1,93 @@
+autostart = False
+version = 0.8.6
+[127.0.0.1:7200]
+    workingdir = working
+    udp = 10001
+    [[7200]]
+        image = /media/labcomp1/CE25-CCED/C7200-v151.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R4]]
+        console = 2111
+        aux = 2511
+        cnfg = configs/R4.cfg
+        slot1 = PA-8T
+        s1/0 = R5 s1/1
+        s1/1 = R6 s1/1
+        slot2 = PA-2FE-TX
+        f2/0 = SW2 1
+        x = -49.0
+        y = -143.0
+        z = 1.0
+    [[ROUTER R1]]
+        console = 2108
+        aux = 2508
+        cnfg = configs/R1.cfg
+        slot1 = PA-8T
+        s1/0 = R2 s1/0
+        s1/1 = R3 s1/0
+        slot2 = PA-2FE-TX
+        f2/0 = SW1 1
+        x = -52.0
+        y = 126.0
+        z = 1.0
+    [[ROUTER R2]]
+        console = 2109
+        aux = 2509
+        cnfg = configs/R2.cfg
+        slot1 = PA-8T
+        s1/0 = R1 s1/0
+        s1/1 = R5 s1/0
+        x = -201.0
+        y = 70.0
+        z = 1.0
+    [[ROUTER R3]]
+        console = 2110
+        aux = 2510
+        cnfg = configs/R3.cfg
+        slot1 = PA-8T
+        s1/0 = R1 s1/1
+        s1/1 = R6 s1/0
+        x = 92.0
+        y = 81.0
+        z = 1.0
+    [[ETHSW SW1]]
+        1 = access 1 R1 f2/0
+        x = -53.5
+        y = 199.0
+        z = 1.0
+    [[ETHSW SW2]]
+        1 = access 1 R4 f2/0
+        x = -50.5
+        y = -207.0
+        z = 1.0
+[127.0.0.1:7201]
+    workingdir = working
+    udp = 10101
+    [[7200]]
+        image = /media/labcomp1/CE25-CCED/C7200-v151.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R5]]
+        console = 2112
+        aux = 2512
+        cnfg = configs/R5.cfg
+        slot1 = PA-8T
+        s1/0 = R2 s1/1
+        s1/1 = R4 s1/0
+        x = -198.0
+        y = -65.0
+        z = 1.0
+    [[ROUTER R6]]
+        console = 2113
+        aux = 2513
+        cnfg = configs/R6.cfg
+        slot1 = PA-8T
+        s1/0 = R3 s1/1
+        s1/1 = R4 s1/1
+        x = 102.0
+        y = -62.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    workdir = working
