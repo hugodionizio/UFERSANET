@@ -1,0 +1,152 @@
+autostart = False
+version = 0.8.7
+[127.0.0.1:7200]
+    workingdir = working
+    udp = 10001
+    [[7200]]
+        image = /home/aluno/GNS3/Images/C7200-v151.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R4]]
+        console = 2110
+        aux = 2510
+        cnfg = configs/R4.cfg
+        slot0 = C7200-IO-FE
+        f0/0 = HUB2 1
+        slot1 = PA-8T
+        s1/0 = R3 s1/1
+        s1/1 = R5 s1/0
+        x = 83.0
+        y = -36.0
+        z = 1.0
+    [[ROUTER R1]]
+        console = 2107
+        aux = 2507
+        cnfg = configs/R1.cfg
+        slot0 = C7200-IO-FE
+        f0/0 = HUB1 1
+        slot1 = PA-8T
+        s1/0 = R2 s1/0
+        x = -349.0
+        y = -45.0
+        z = 1.0
+    [[ROUTER R2]]
+        console = 2108
+        aux = 2508
+        cnfg = configs/R2.cfg
+        slot0 = C7200-IO-FE
+        slot1 = PA-8T
+        s1/0 = R1 s1/0
+        s1/1 = R3 s1/0
+        x = -200.0
+        y = -38.0
+        z = 1.0
+    [[ROUTER R3]]
+        console = 2109
+        aux = 2509
+        cnfg = configs/R3.cfg
+        slot0 = C7200-IO-FE
+        slot1 = PA-8T
+        s1/0 = R2 s1/1
+        s1/1 = R4 s1/0
+        x = -60.0
+        y = -40.0
+        z = 1.0
+    [[Hub HUB2]]
+        1 = R4 f0/0
+        x = 87.0
+        y = -105.0
+        z = 1.0
+    [[Hub HUB1]]
+        1 = R1 f0/0
+        x = -412.0
+        y = -114.0
+        z = 1.0
+[127.0.0.1:7201]
+    workingdir = working
+    udp = 10101
+    [[7200]]
+        image = /home/aluno/GNS3/Images/C7200-v151.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R5]]
+        console = 2111
+        aux = 2511
+        cnfg = configs/R5.cfg
+        slot0 = C7200-IO-FE
+        f0/0 = HUB3 1
+        slot1 = PA-8T
+        s1/0 = R4 s1/1
+        x = 260.0
+        y = -32.0
+        z = 1.0
+    [[Hub HUB3]]
+        1 = R5 f0/0
+        x = 262.0
+        y = -103.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    workdir = working
+    [[NOTE 1]]
+        text = "s1/0"
+        x = -6.85897238232
+        y = 25.3559381141
+        interface = R5 s1/0
+        color = "#313739"
+    [[NOTE 2]]
+        text = "s1/1"
+        x = 72.8589723823
+        y = 18.6440618859
+        interface = R4 s1/1
+        color = "#313739"
+    [[NOTE 3]]
+        text = "s1/0"
+        x = -6.79831986157
+        y = 26.0116999135
+        interface = R4 s1/0
+        color = "#313739"
+    [[NOTE 4]]
+        text = "s1/1"
+        x = 72.7983198616
+        y = 17.9883000865
+        interface = R3 s1/1
+        color = "#313739"
+    [[NOTE 5]]
+        text = "s1/0"
+        x = -6.57962099923
+        y = 27.7839088476
+        interface = R3 s1/0
+        color = "#313739"
+    [[NOTE 6]]
+        text = "s1/1"
+        x = 72.5796209992
+        y = 16.2160911524
+        interface = R2 s1/1
+        color = "#313739"
+    [[NOTE 7]]
+        text = "s1/0"
+        x = -6.88171157075
+        y = 25.073935944
+        interface = R2 s1/0
+        color = "#313739"
+    [[NOTE 8]]
+        text = "s1/0"
+        x = 72.8817115707
+        y = 18.926064056
+        interface = R1 s1/0
+        color = "#313739"
+    [[SHAPE 1]]
+        type = ellipse
+        x = -26.0
+        y = -170.0
+        width = 254.0
+        height = 282.0
+        border_style = 2
+    [[SHAPE 2]]
+        type = ellipse
+        x = -450.0
+        y = -174.0
+        width = 424.0
+        height = 291.0
+        border_style = 2

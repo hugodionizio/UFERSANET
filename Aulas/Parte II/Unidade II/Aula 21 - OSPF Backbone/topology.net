@@ -1,0 +1,145 @@
+autostart = False
+version = 0.8.7
+[127.0.0.1:7200]
+    workingdir = working
+    udp = 10001
+    [[7200]]
+        image = /home/aluno/GNS3/Images/C7200-v151.image
+        sparsemem = True
+        ghostios = True
+    [[Hub HUB2]]
+        1 = R3 f0/0
+        x = 192.0
+        y = -165.0
+        z = 1.0
+    [[Hub HUB1]]
+        1 = R1 f0/0
+        x = -308.0
+        y = -171.0
+        z = 1.0
+    [[ROUTER R1]]
+        console = 2101
+        aux = 2501
+        cnfg = configs/R1.cfg
+        slot0 = C7200-IO-FE
+        f0/0 = HUB1 1
+        slot1 = PA-8T
+        s1/0 = R2 s1/0
+        x = -310.0
+        y = -23.0
+        z = 1.0
+        hx = -28.015625
+        hy = 14.0
+    [[ROUTER R2]]
+        console = 2102
+        aux = 2502
+        cnfg = configs/R2.cfg
+        slot0 = C7200-IO-FE
+        slot1 = PA-8T
+        s1/0 = R1 s1/0
+        s1/1 = R3 s1/0
+        x = -51.0
+        y = -14.0
+        z = 1.0
+        hx = 16.484375
+        hy = 48.0
+    [[ROUTER R3]]
+        console = 2103
+        aux = 2503
+        cnfg = configs/R3.cfg
+        slot0 = C7200-IO-FE
+        f0/0 = HUB2 1
+        slot1 = PA-8T
+        s1/0 = R2 s1/1
+        x = 194.0
+        y = -20.0
+        z = 1.0
+        hx = 65.984375
+        hy = 10.0
+[GNS3-DATA]
+    configs = configs
+    workdir = working
+    [[NOTE 1]]
+        text = "área 52"
+        x = 275.0
+        y = -205.5
+        color = "#313739"
+    [[NOTE 2]]
+        text = "área 51"
+        x = -372.0
+        y = -221.5
+        color = "#313739"
+    [[NOTE 3]]
+        text = "área 0"
+        x = -42.0
+        y = -90.5
+        color = "#313739"
+    [[NOTE 4]]
+        text = "f0/0"
+        x = 42.2648948535
+        y = -36.9991228743
+        interface = R3 f0/0
+        color = "#313739"
+    [[NOTE 5]]
+        text = "s1/0"
+        x = -43.7839577177
+        y = 33.1517114924
+        interface = R3 s1/0
+        color = "#313739"
+    [[NOTE 6]]
+        text = "s1/1"
+        x = 72.7839577177
+        y = 17.8482885076
+        interface = R2 s1/1
+        color = "#313739"
+    [[NOTE 7]]
+        text = "s1/0"
+        x = -36.9667401302
+        y = 24.6308535691
+        interface = R2 s1/0
+        color = "#313739"
+    [[NOTE 8]]
+        text = "s1/0"
+        x = 72.9667401302
+        y = 20.3691464309
+        interface = R1 s1/0
+        color = "#313739"
+    [[NOTE 9]]
+        text = "f0/0"
+        x = -10.7019826675
+        y = -40.9789338403
+        interface = R1 f0/0
+        color = "#313739"
+    [[NOTE 10]]
+        text = "1"
+        x = 34.7019826675
+        y = 55.9789338403
+        interface = HUB1 1
+        color = "#313739"
+    [[NOTE 11]]
+        text = "1"
+        x = 35.7351051465
+        y = 55.9991228743
+        interface = HUB2 1
+        color = "#313739"
+    [[SHAPE 1]]
+        type = ellipse
+        x = -334.0
+        y = -214.0
+        width = 113.0
+        height = 200.0
+        border_style = 2
+    [[SHAPE 2]]
+        type = ellipse
+        x = 181.0
+        y = -201.0
+        width = 113.0
+        height = 200.0
+        border_style = 2
+    [[SHAPE 3]]
+        type = ellipse
+        x = -252.0
+        y = -97.0
+        width = 453.0
+        height = 200.0
+        border_style = 2
