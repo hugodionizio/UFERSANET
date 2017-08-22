@@ -1,0 +1,84 @@
+autostart = False
+version = 0.8.7
+[localhost:7200]
+    workingdir = working
+    udp = 10001
+    [[7200]]
+        image = /mnt/c/Users/Hugo/GNS3/images/IOS/C7200-v151.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R1]]
+        console = 2101
+        aux = 2501
+        cnfg = configs/R1.cfg
+        slot0 = C7200-IO-FE
+        f0/0 = HUB1 1
+        slot1 = PA-FE-TX
+        f1/0 = HUB5 1
+        x = -197.0
+        y = -97.0
+        z = 1.0
+    [[ROUTER R2]]
+        console = 2102
+        aux = 2502
+        cnfg = configs/R2.cfg
+        slot0 = C7200-IO-FE
+        f0/0 = HUB2 1
+        slot1 = PA-FE-TX
+        f1/0 = HUB5 2
+        x = 54.0
+        y = -101.0
+        z = 1.0
+    [[ROUTER R3]]
+        console = 2103
+        aux = 2503
+        cnfg = configs/R3.cfg
+        slot0 = C7200-IO-FE
+        f0/0 = HUB3 1
+        slot1 = PA-FE-TX
+        f1/0 = HUB5 3
+        x = -202.0
+        y = 90.0
+        z = 1.0
+    [[ROUTER R8]]
+        console = 2104
+        aux = 2504
+        cnfg = configs/R8.cfg
+        slot0 = C7200-IO-FE
+        f0/0 = HUB4 1
+        slot1 = PA-FE-TX
+        f1/0 = HUB5 4
+        x = 47.0
+        y = 84.0
+        z = 1.0
+    [[Hub HUB3]]
+        1 = R3 f0/0
+        x = -297.0
+        y = 156.0
+        z = 1.0
+    [[Hub HUB2]]
+        1 = R2 f0/0
+        x = 142.0
+        y = -168.0
+        z = 1.0
+    [[Hub HUB1]]
+        1 = R1 f0/0
+        x = -285.0
+        y = -168.0
+        z = 1.0
+    [[Hub HUB5]]
+        1 = R1 f1/0
+        2 = R2 f1/0
+        3 = R3 f1/0
+        4 = R8 f1/0
+        x = -83.0
+        y = 12.0
+        z = 1.0
+    [[Hub HUB4]]
+        1 = R8 f0/0
+        x = 140.0
+        y = 153.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    workdir = working
