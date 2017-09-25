@@ -1,0 +1,128 @@
+autostart = False
+version = 0.8.7
+[127.0.0.1:7200]
+    workingdir = working
+    udp = 10001
+    [[7200]]
+        image = /media/aluno/MULTIBOOT/Softwares/C7200-v151.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R4]]
+        console = 2104
+        aux = 2504
+        cnfg = configs/R4.cfg
+        slot1 = PA-8T
+        s1/0 = R3 s1/1
+        s1/1 = R5 s1/1
+        x = -52.0
+        y = -116.0
+        z = 1.0
+    [[ROUTER R1]]
+        console = 2101
+        aux = 2501
+        cnfg = configs/R1.cfg
+        slot1 = PA-8T
+        s1/0 = R2 s1/0
+        s1/1 = R3 s1/0
+        slot2 = PA-8E
+        e2/0 = HUB2 1
+        x = -176.0
+        y = 201.0
+        z = 1.0
+    [[ROUTER R2]]
+        console = 2102
+        aux = 2502
+        cnfg = configs/R2.cfg
+        slot1 = PA-8T
+        s1/0 = R1 s1/0
+        s1/1 = R5 s1/0
+        x = -301.0
+        y = 72.0
+        z = 1.0
+    [[ROUTER R3]]
+        console = 2103
+        aux = 2503
+        cnfg = configs/R3.cfg
+        slot1 = PA-8T
+        s1/0 = R1 s1/1
+        s1/1 = R4 s1/0
+        x = -70.0
+        y = 73.0
+        z = 1.0
+    [[Hub HUB2]]
+        1 = R1 e2/0
+        x = -179.0
+        y = 303.0
+        z = 1.0
+[127.0.0.1:7201]
+    workingdir = working
+    udp = 10101
+    [[7200]]
+        image = /media/aluno/MULTIBOOT/Softwares/C7200-v151.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R5]]
+        console = 2105
+        aux = 2505
+        cnfg = configs/R5.cfg
+        slot1 = PA-8T
+        s1/0 = R2 s1/1
+        s1/1 = R4 s1/1
+        slot2 = PA-8E
+        e2/0 = HUB1 1
+        x = -298.0
+        y = -107.0
+        z = 1.0
+    [[Hub HUB1]]
+        1 = R5 e2/0
+        x = -306.0
+        y = -200.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    workdir = working
+    [[NOTE 1]]
+        text = "	FIB\n(Forwarding Information Base)"
+        x = 137.0
+        y = 197.5
+        color = "#333333"
+    [[NOTE 2]]
+        text = "	RIB\n(Routing Information Base)"
+        x = 169.0
+        y = 73.5
+        color = "#333333"
+    [[SHAPE 1]]
+        type = rectangle
+        x = -103.0
+        y = 38.0
+        width = 143.0
+        height = 100.0
+        border_style = 2
+    [[SHAPE 2]]
+        type = rectangle
+        x = -228.0
+        y = 175.0
+        width = 176.0
+        height = 166.0
+        border_style = 2
+    [[SHAPE 3]]
+        type = rectangle
+        x = -343.0
+        y = 39.0
+        width = 155.0
+        height = 100.0
+        border_style = 2
+    [[SHAPE 4]]
+        type = rectangle
+        x = -105.0
+        y = -178.0
+        width = 195.0
+        height = 132.0
+        border_style = 2
+    [[SHAPE 5]]
+        type = rectangle
+        x = -349.0
+        y = -235.0
+        width = 161.0
+        height = 208.0
+        border_style = 2

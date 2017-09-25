@@ -1,0 +1,108 @@
+autostart = False
+version = 0.8.7
+[127.0.0.1:7200]
+    workingdir = working
+    udp = 10001
+    [[7200]]
+        image = /mnt-system/Softwares/C7200-v151.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R4]]
+        console = 2105
+        aux = 2504
+        cnfg = configs/R4.cfg
+        slot0 = C7200-IO-FE
+        slot1 = PA-8T
+        s1/0 = R3 s1/1
+        s1/1 = R5 s1/0
+        x = 185.0
+        y = 0.0
+        z = 1.0
+    [[ROUTER R1]]
+        console = 2102
+        aux = 2501
+        cnfg = configs/R1.cfg
+        slot0 = C7200-IO-FE
+        f0/0 = HUB1 1
+        slot1 = PA-8T
+        s1/0 = R2 s1/0
+        x = -403.0
+        y = -10.0
+        z = 1.0
+    [[ROUTER R2]]
+        console = 2103
+        aux = 2502
+        cnfg = configs/R2.cfg
+        slot0 = C7200-IO-FE
+        slot1 = PA-8T
+        s1/0 = R1 s1/0
+        s1/1 = R3 s1/0
+        x = -195.0
+        y = -1.0
+        z = 1.0
+    [[ROUTER R3]]
+        console = 2104
+        aux = 2503
+        cnfg = configs/R3.cfg
+        slot0 = C7200-IO-FE
+        slot1 = PA-8T
+        s1/0 = R2 s1/1
+        s1/1 = R4 s1/0
+        x = -4.0
+        y = -2.0
+        z = 1.0
+    [[Hub HUB1]]
+        1 = R1 f0/0
+        x = -400.0
+        y = -138.0
+        z = 1.0
+[127.0.0.1:7201]
+    workingdir = working
+    udp = 10101
+    [[7200]]
+        image = /mnt-system/Softwares/C7200-v151.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R5]]
+        console = 2106
+        aux = 2506
+        cnfg = configs/R5.cfg
+        slot1 = PA-8T
+        s1/0 = R4 s1/1
+        s1/1 = R6 s1/0
+        x = 328.0
+        y = 0.0
+        z = 1.0
+    [[ROUTER R6]]
+        console = 2108
+        aux = 2508
+        cnfg = configs/R6.cfg
+        slot0 = C7200-IO-FE
+        f0/0 = HUB2 1
+        slot1 = PA-8T
+        s1/0 = R5 s1/1
+        x = 435.0
+        y = 86.0
+        z = 1.0
+    [[Hub HUB2]]
+        1 = R6 f0/0
+        x = 433.0
+        y = 193.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    workdir = working
+    [[SHAPE 1]]
+        type = ellipse
+        x = 33.0
+        y = -89.0
+        width = 331.0
+        height = 200.0
+        border_style = 2
+    [[SHAPE 2]]
+        type = ellipse
+        x = -170.0
+        y = -76.0
+        width = 200.0
+        height = 200.0
+        border_style = 2

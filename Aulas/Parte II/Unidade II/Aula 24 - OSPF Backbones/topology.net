@@ -1,0 +1,67 @@
+autostart = False
+version = 0.8.7
+[127.0.0.1:7200]
+    workingdir = working
+    udp = 10001
+    [[7200]]
+        image = /media/aluno/MULTIBOOT/Softwares/C7200-v151.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R4]]
+        console = 2104
+        aux = 2504
+        slot1 = PA-8T
+        s1/0 = R3 s1/1
+        s1/1 = R5 s1/0
+        cnfg = configs/R4.cfg
+        x = 90.0
+        y = -31.0
+        z = 1.0
+    [[ROUTER R1]]
+        console = 2101
+        aux = 2501
+        slot1 = PA-8T
+        s1/0 = R2 s1/0
+        cnfg = configs/R1.cfg
+        x = -393.0
+        y = -138.0
+        z = 1.0
+    [[ROUTER R2]]
+        console = 2102
+        aux = 2502
+        slot1 = PA-8T
+        s1/0 = R1 s1/0
+        s1/1 = R3 s1/0
+        cnfg = configs/R2.cfg
+        x = -241.0
+        y = -39.0
+        z = 1.0
+    [[ROUTER R3]]
+        console = 2103
+        aux = 2503
+        slot1 = PA-8T
+        s1/0 = R2 s1/1
+        s1/1 = R4 s1/0
+        cnfg = configs/R3.cfg
+        x = -64.0
+        y = 97.0
+        z = 1.0
+[127.0.0.1:7201]
+    workingdir = working
+    udp = 10101
+    [[7200]]
+        image = /media/aluno/MULTIBOOT/Softwares/C7200-v151.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R5]]
+        console = 2105
+        aux = 2505
+        slot1 = PA-8T
+        s1/0 = R4 s1/1
+        cnfg = configs/R5.cfg
+        x = 256.0
+        y = -110.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    workdir = working
