@@ -1,0 +1,191 @@
+autostart = False
+version = 0.8.7
+[127.0.0.1:7200]
+    workingdir = working
+    udp = 10001
+    [[7200]]
+        image = /media/aluno/MULTIBOOT/Softwares/C7200-v151.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R4]]
+        console = 2112
+        aux = 2512
+        cnfg = configs/R4.cfg
+        slot1 = PA-2FE-TX
+        f1/0 = HUB1 1
+        slot2 = PA-8T
+        s2/0 = R5 s1/1
+        s2/1 = R6 s1/1
+        x = -59.0
+        y = -143.0
+        z = 1.0
+    [[ROUTER R1]]
+        console = 2109
+        aux = 2509
+        cnfg = configs/R1.cfg
+        slot1 = PA-2FE-TX
+        f1/0 = HUB2 1
+        slot2 = PA-8T
+        s2/0 = R2 s1/0
+        s2/1 = R3 s1/0
+        x = -60.0
+        y = 119.0
+        z = 1.0
+    [[ROUTER R2]]
+        console = 2110
+        aux = 2510
+        cnfg = configs/R2.cfg
+        slot1 = PA-8T
+        s1/0 = R1 s2/0
+        s1/1 = R5 s1/0
+        x = -242.0
+        y = 54.0
+        z = 1.0
+    [[ROUTER R3]]
+        console = 2111
+        aux = 2511
+        cnfg = configs/R3.cfg
+        slot1 = PA-8T
+        s1/0 = R1 s2/1
+        s1/1 = R6 s1/0
+        x = 121.0
+        y = 48.0
+        z = 1.0
+    [[Hub HUB2]]
+        1 = R1 f1/0
+        x = -58.0
+        y = 245.0
+        z = 1.0
+    [[Hub HUB1]]
+        1 = R4 f1/0
+        x = -59.0
+        y = -213.0
+        z = 1.0
+[127.0.0.1:7201]
+    workingdir = working
+    udp = 10101
+    [[7200]]
+        image = /media/aluno/MULTIBOOT/Softwares/C7200-v151.image
+        sparsemem = True
+        ghostios = True
+    [[ROUTER R5]]
+        console = 2113
+        aux = 2513
+        cnfg = configs/R5.cfg
+        slot1 = PA-8T
+        s1/0 = R2 s1/1
+        s1/1 = R4 s2/0
+        x = -241.0
+        y = -70.0
+        z = 1.0
+    [[ROUTER R6]]
+        console = 2114
+        aux = 2514
+        cnfg = configs/R6.cfg
+        slot1 = PA-8T
+        s1/0 = R3 s1/1
+        s1/1 = R4 s2/1
+        x = 129.0
+        y = -60.0
+        z = 1.0
+[GNS3-DATA]
+    configs = configs
+    workdir = working
+    [[NOTE 1]]
+        text = "1"
+        x = 34.401278466
+        y = -23.9680383489
+        interface = HUB2 1
+        color = "#333333"
+    [[NOTE 2]]
+        text = "s1/0"
+        x = -2.62864451475
+        y = 40.1824005577
+        interface = R3 s1/0
+        color = "#333333"
+    [[NOTE 3]]
+        text = "s1/1"
+        x = 29.4679558694
+        y = -17.8437531397
+        interface = R3 s1/1
+        color = "#333333"
+    [[NOTE 4]]
+        text = "s1/0"
+        x = 71.8109619782
+        y = 31.6803527997
+        interface = R2 s1/0
+        color = "#333333"
+    [[NOTE 5]]
+        text = "s1/1"
+        x = 41.5375700938
+        y = -24.6252679426
+        interface = R2 s1/1
+        color = "#333333"
+    [[NOTE 6]]
+        text = "f1/0"
+        x = 34.598721534
+        y = 61.9680383489
+        interface = R1 f1/0
+        color = "#333333"
+    [[NOTE 7]]
+        text = "s2/1"
+        x = 70.6286445147
+        y = 3.81759944227
+        interface = R1 s2/1
+        color = "#333333"
+    [[NOTE 8]]
+        text = "s2/0"
+        x = -42.8109619782
+        y = 20.3196472003
+        interface = R1 s2/0
+        color = "#333333"
+    [[NOTE 9]]
+        text = "s1/0"
+        x = 36.5320441306
+        y = 61.8437531397
+        interface = R6 s1/0
+        color = "#333333"
+    [[NOTE 10]]
+        text = "s1/1"
+        x = -39.9383497256
+        y = 7.32397459385
+        interface = R6 s1/1
+        color = "#333333"
+    [[NOTE 11]]
+        text = "s1/0"
+        x = 38.4624299062
+        y = 61.6252679426
+        interface = R5 s1/0
+        color = "#333333"
+    [[NOTE 12]]
+        text = "s1/1"
+        x = 68.5026118688
+        y = 3.57272265118
+        interface = R5 s1/1
+        color = "#333333"
+    [[NOTE 13]]
+        text = "s2/1"
+        x = 70.9383497256
+        y = 34.6760254061
+        interface = R4 s2/1
+        color = "#333333"
+    [[NOTE 14]]
+        text = "s2/0"
+        x = -2.50261186884
+        y = 40.4272773488
+        interface = R4 s2/0
+        color = "#333333"
+    [[SHAPE 1]]
+        type = rectangle
+        x = -297.0
+        y = 73.0
+        width = 533.0
+        height = 168.0
+        border_style = 2
+    [[SHAPE 2]]
+        type = rectangle
+        x = -301.0
+        y = -221.0
+        width = 522.0
+        height = 174.0
+        border_style = 2
